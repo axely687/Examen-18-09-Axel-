@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Registro Informática</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Dynamic Canvas Background -->
+    <canvas id="tech-bg"></canvas>
+
+    <div class="app-container">
+        <!-- Technical Header -->
+        <header class="sys-header">
+            <div class="sys-logo">
+                <span class="logo-symbol">❖</span>
+                <span class="logo-text">REGISTRO<span class="accent">_INF</span></span>
+            </div>
+            <div class="sys-status">
+                <span class="status-dot pulsing"></span>
+                <span class="status-text">DATABASE ONLINE</span>
+            </div>
+        </header>
+
+        <!-- Main Workspace -->
+        <main class="sys-main">
+            <!-- Left Panel / Registration Form -->
+            <section class="control-panel">
+                <h2 class="panel-title">Registro de Usuario</h2>
+                <form id="regForm" class="panel-body">
+                    <div class="form-group">
+                        <label for="fullName">Nombre y Apellido</label>
+                        <input type="text" id="fullName" name="fullName" required placeholder="Ej. Alan Turing">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="age">Edad</label>
+                            <input type="number" id="age" name="age" required min="1" max="120" placeholder="25">
+                        </div>
+                        <div class="form-group half">
+                            <label for="gender">Identidad de Género</label>
+                            <select id="gender" name="gender" required>
+                                <option value="" disabled selected>Elegir...</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="No Binario">No Binario</option>
+                                <option value="Otro">Otro</option>
+                                <option value="No revelado">No revelado</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Gmail</label>
+                        <input type="email" id="email" name="email" required placeholder="ejemplo@gmail.com" pattern="[a-zA-Z0-9._%+-]+@gmail\.com" title="Debe ser una dirección de correo de Gmail (ejemplo@gmail.com)">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Ej. +34 600 123 456">
+                    </div>
+                    <div class="control-actions">
+                        <button type="submit" id="btn" class="sys-btn">
+                            <span class="btn-text">Enviar Registro</span>
+                            <span class="btn-glow"></span>
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Right Panel / Subsystem Status & Logs -->
+            <section class="status-panel">
+                <h2 class="panel-title">Telemetry & Diagnostics</h2>
+                <div class="status-card">
+                    <div class="status-row">
+                        <span class="label">Registro Estado:</span>
+                        <span id="title" class="val val-standby">STANDBY</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="label">Servidor Latencia:</span>
+                        <span class="val">14ms</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="label">DB Carga:</span>
+                        <span class="val">0.02%</span>
+                    </div>
+                </div>
+
+                <!-- Terminal-like Console output -->
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <span class="terminal-title">CONSOLE_OUTPUT</span>
+                        <div class="terminal-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
+                    <div class="terminal-body" id="terminal-logs">
+                        <div class="log-line text-muted">[sys_info] Listo para recibir payload de registro...</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Technical Footer -->
+        <footer class="sys-footer">
+            <span>SECURE CONNECTION // TLS_1.3</span>
+            <span>v1.2.0-stable</span>
+        </footer>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
